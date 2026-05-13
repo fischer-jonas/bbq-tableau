@@ -19,7 +19,7 @@ jobs:
           python-version: '3.11'
 
       - name: Install packages
-        run: pip install pandas requests openmeteo-requests retry-requests
+        run: pip install pandas requests requests-cache openmeteo-requests retry-requests
 
       - name: Run weather scripts
         run: |
