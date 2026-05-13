@@ -1,0 +1,39 @@
+name: Daily Weather Update
+
+on:
+  schedule:
+    - cron: '0 5 * * *'
+  workflow_dispatch:
+
+jobs:
+  update-weather:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install packages
+        run: pip install pandas requests openmeteo-requests retry-requests
+
+      - name: Run weather scripts
+        run: |
+          python weather.py
+          python glfi.py
+
+      - name: Commit updated CSV
+        run: |
+          git config user.name "fischer-jonas"
+          git config user.email "jonasfischer.professional@gmail.com"
+
+          git add weather.csv
+          git add glfi.csv
+
+          git commit -m "Daily weather update" || echo "No changes"
+
+          git push
