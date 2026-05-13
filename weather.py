@@ -8,6 +8,7 @@ Created on Wed May  6 19:37:56 2026
 import requests
 import pandas as pd
 import openmeteo_requests
+import datetime
 
 import pandas as pd
 import requests_cache
@@ -25,7 +26,7 @@ params = {
 	"latitude": 52.52,
 	"longitude": 13.41,
 	"start_date": "2025-06-02",
-	"end_date": "2026-05-06",
+	"end_date": datetime.datetime.now().strftime("%Y-%m-%d"),#"2026-05-06",
 	"daily": ["weather_code", "temperature_2m_mean", "temperature_2m_max", "temperature_2m_min", "precipitation_sum", "wind_speed_10m_max", "precipitation_hours", "sunshine_duration"],
 	"timezone": "Europe/Berlin",
 }
