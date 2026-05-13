@@ -31,7 +31,7 @@ jobs:
           git config user.name "fischer-jonas"
           git config user.email "jonasfischer.professional@gmail.com"
 
-          git add weather.csv
+          git add bochum_weather.csv
           git add glfi.csv
 
           git commit -m "Daily weather update" || echo "No changes"
