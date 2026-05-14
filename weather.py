@@ -9,8 +9,6 @@ import requests
 import pandas as pd
 import openmeteo_requests
 import datetime
-
-import pandas as pd
 import requests_cache
 from retry_requests import retry
 
